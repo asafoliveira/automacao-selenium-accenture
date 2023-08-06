@@ -3,8 +3,11 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EnterInsurantDataPage {
+import core.BasePage;
 
+public class EnterInsurantDataPage extends BasePage {
+
+	// Campos da página mapeados através da anotacao @FindBy
 	@FindBy(id = "firstname")
 	private WebElement campoFirstName;
 
@@ -59,66 +62,69 @@ public class EnterInsurantDataPage {
 	@FindBy(id = "nextenterproductdata")
 	private WebElement botaoNextProductData;
 
+	// Métodos de acoes encapsulando os campos mapeados da página
 	public void preencherCampoFirstName(String firstName) {
-		campoFirstName.sendKeys(firstName);
+		escrever(campoFirstName, firstName);
 	}
 
 	public void preencherCampoLastNane(String lastName) {
-		campoLastName.sendKeys(lastName);
+		escrever(campoLastName, lastName);
 	}
 
 	public void preencherCampoDateOfBirth(String dateOfBirth) {
-		campoDateOfBirth.sendKeys(dateOfBirth);
+		escrever(campoDateOfBirth, dateOfBirth);
 	}
 
 	public void selecionarOpcaoGenderMale() {
-		opcaoGenderMale.click();
+		clicar(opcaoGenderMale);
 	}
 
 	public void acionarCampoCountry() {
-		campoCountry.click();
+		clicar(campoCountry);
 	}
 
 	public void preencherCampoStreetAddress(String streetAdress) {
-		campoStreetAddress.sendKeys(streetAdress);
+		escrever(campoStreetAddress, streetAdress);
 	}
 
 	public void selecionarOpcaoBrazil() {
-		opcaoBrazil.click();
+		clicar(opcaoBrazil);
 	}
 
 	public void preencherCampoZipCode(String zipCode) {
-		campoZipcode.sendKeys(zipCode);
+		escrever(campoZipcode, zipCode);
 	}
 
 	public void preencherCampoCity(String city) {
-		campoCity.sendKeys(city);
+		escrever(campoCity, city);
 	}
 
 	public void acionarCampoOcuppation() {
-		campoOcuppation.click();
+		clicar(campoOcuppation);
 	}
 
 	public void selecionarOpcaoEmployee() {
-		opcaoEmployee.click();
+		clicar(opcaoEmployee);
 	}
 
 	public void selecionarHobbies() {
-		opcaoSpeeding.click();
-		opcaoBungeeJumping.click();
-		opcaoCliffDiving.click();
-		opcaoSkyDiving.click();
-		opcaoOther.click();
+		clicar(opcaoSpeeding);
+		clicar(opcaoBungeeJumping);
+		clicar(opcaoCliffDiving);
+		clicar(opcaoSkyDiving);
+		clicar(opcaoOther);
 	}
 
 	public void preencherCampoWebsite(String website) {
-		campoWebsite.sendKeys(website);
+		escrever(campoWebsite, website);
 	}
-	
+
 	public void acionarBotaoNextProductData() {
-		botaoNextProductData.click();
+		clicar(botaoNextProductData);
 	}
-	
+
+	// Método que encapsula todos os métodos da page e realiza a rotina de
+	// preenchimento dos dados pessoais.
 	public void preencherDadosPessoais(String firstName, String lastName, String dateOfBirth, String streetAddress,
 			String zipCode, String city, String website) {
 		preencherCampoFirstName(firstName);

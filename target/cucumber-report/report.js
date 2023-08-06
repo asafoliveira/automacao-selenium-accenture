@@ -19,6 +19,9 @@ formatter.scenario({
     },
     {
       "name": "@PreencherDadosPessoaisComSucesso"
+    },
+    {
+      "name": "@SmokeTest"
     }
   ]
 });

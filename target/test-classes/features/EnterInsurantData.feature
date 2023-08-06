@@ -4,7 +4,7 @@
 @EnterInsurantData
 Funcionalidade: Preencher os meus dados pessoais
 
-	@PreencherDadosPessoaisComSucesso
+	@PreencherDadosPessoaisComSucesso @SmokeTest
 	Cenario: Enter Insurant Data Sucessfuly
 		Dado que eu esteja acessando a pagina de Enter Insurant Data
 		Quando eu preencher o campo First Name com "Tester123$%"

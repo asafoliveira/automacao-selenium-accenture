@@ -1,131 +1,128 @@
 package stepsDefinitions;
 
+import static utils.Utils.*;
+
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import pageObjects.EnterVehicleDataPage;
 
-import static org.junit.Assert.assertEquals;
-import static utils.Utils.*;
-
-import org.openqa.selenium.By;
-
 public class EnterVehicleDataSteps {
 
-	@Dado("que eu acione o campo Make")
-	public void queEuAcioneOCampoMake() {
-	    Na(EnterVehicleDataPage.class).acionarCampoMake();
+	@Dado("que o usuario acione o campo Make")
+	public void queOUsuarioAcioneOCampoMake() {
+		Na(EnterVehicleDataPage.class).acionarCampoMake();
 	}
 
-	@Quando("eu selecionar a Opcao Audi")
-	public void euSelecionarAOpcaoAudi() {
+	@Quando("for selecionada a Opcao Audi")
+	public void forSelecionadaAOpcaoAudi() {
 		Na(EnterVehicleDataPage.class).selecionarOpcaoAudi();
 	}
-	
-	@Quando("acionar o campo Model")
-	public void acionarOCampoModel() {
+
+	@Quando("for acionado o campo Model")
+	public void forAcionadoOCampoModel() {
 		Na(EnterVehicleDataPage.class).acionarCampoModel();
 	}
 
-	@Quando("selecionar a opcao Scooter")
-	public void selecionarAOpcaoScooter() {
+	@Quando("for selecionada a opcao Scooter")
+	public void forSelecionadaAOpcaoScooter() {
 		Na(EnterVehicleDataPage.class).selecionarOpcaoScooter();
 	}
 
-	
-	@Quando("preencher o campo Cylinder Capacity com {string}")
-	public void preencherOCampoCylinderCapacityCom(String cylinderCapacity) {
+	@Quando("for preenchido o campo Cylinder Capacity com {string}")
+	public void forPreenchidoOCampoCylinderCapacityCom(String cylinderCapacity) {
 		Na(EnterVehicleDataPage.class).preencherCampoCylinderCapacity(cylinderCapacity);
 	}
 
-	@Quando("preencher o campo Engine Performance com {string}")
-	public void preencherOCampoEnginePerformanceCom(String enginePerformance) {
+	@Quando("for preenchido o campo Engine Performance com {string}")
+	public void forPreenchidoOCampoEnginePerformanceCom(String enginePerformance) {
 		Na(EnterVehicleDataPage.class).preencherCampoEnginePerformance(enginePerformance);
 	}
 
-	@Quando("acionar o botao do campo Date of Manufacture")
-	public void acionarOConeDeDataDoCampoDateOfManufacture() {
-		Na(EnterVehicleDataPage.class).acionarBotaoDateOfManufacture();;
+	@Quando("for acionado o botao do campo Date of Manufacture")
+	public void forAcionadoOBotaoDoCampoDateOfManufacture() {
+		Na(EnterVehicleDataPage.class).acionarBotaoDateOfManufacture();
+		;
 	}
-	
-	@Quando("acionar o botao de voltar um mes no calendario")
-	public void acionarOBotaoDeVoltarUmMesNoCalendario() {
+
+	@Quando("for acionado o botao de voltar um mes no calendario")
+	public void forAcionadoOBotaoDeVoltarUmMesNoCalendario() {
 		Na(EnterVehicleDataPage.class).acionarBotaoMesAnterior();
 	}
 
-	@Quando("selecionar a data um de julho de dois mil e vinte e tres")
-	public void selecionarADataUmDeJulhoDeDoisMilEVinteETres() {
-	    Na(EnterVehicleDataPage.class).selecionarData010723();
+	@Quando("for selecionada a data um de julho de dois mil e vinte e tres")
+	public void forSelecionadaADataUmDeJulhoDeDoisMilEVinteETres() {
+		Na(EnterVehicleDataPage.class).selecionarData010723();
 	}
 
-	@Quando("acionar o primeiro campo Number of seats")
-	public void acionarOPrimeiroCampoNumberOfSeats() {
+	@Quando("for acionado o primeiro campo Number of seats")
+	public void forAcionadoOPrimeiroCampoNumberOfSeats() {
 		Na(EnterVehicleDataPage.class).acionarCampoNumberOfSeats1();
 	}
 
-	@Quando("escolher a opcao um")
-	public void escolherAOpcaoUm() {
+	@Quando("for selecionada a opcao um")
+	public void forSelecionadaAOpcaoUm() {
 		Na(EnterVehicleDataPage.class).selecionarOpcao1CampoNumberOfSeats1();
 	}
-	
-	@Quando("escolher a opcao Yes no campo Right Hand Drive")
-	public void escolherAOpcaoYesNoCampoRightHandDrive() {
+
+	@Quando("for selecionada a opcao Yes no campo Right Hand Drive")
+	public void forSelecionadaAOpcaoYesNoCampoRightHandDrive() {
 		Na(EnterVehicleDataPage.class).selecionarOpcaoYes();
 	}
-	
-	@Quando("acionar o segundo campo Number of seats")
-	public void acionarOSegundoCampoNumberOfSeats() {
+
+	@Quando("for acionado o segundo campo Number of seats")
+	public void forAcionadoOSegundoCampoNumberOfSeats() {
 		Na(EnterVehicleDataPage.class).acionarCampoNumberOfSeats2();
 	}
 
-	@Quando("selecionar a primeira opcao")
-	public void selecionarAPrimeiraOpcao() {
+	@Quando("for selecionada a primeira opcao")
+	public void forSelecionadaAPrimeiraOpcao() {
 		Na(EnterVehicleDataPage.class).selecionarOpcao1CampoNumberOfSeats2();
 	}
 
-	@Quando("acessar o campo Fuel Type")
-	public void acessarOCampoFuelType() {
+	@Quando("for acionado o campo Fuel Type")
+	public void forAcionadoOCampoFuelType() {
 		Na(EnterVehicleDataPage.class).acionarCampoFuelType();
 	}
 
-	@Quando("selecionar a opcao Petrol")
-	public void selecionarAOpcaoPetrol() {
+	@Quando("for selecionada a opcao Petrol")
+	public void forSelecionadaAOpcaoPetrol() {
 		Na(EnterVehicleDataPage.class).selecionarOpcaoPetrol();
 	}
-	
-	@Quando("preencher o campo Payload com {string}")
-	public void preencherOCampoPayloadCom(String payload) {
+
+	@Quando("for preenchido o campo Payload com {string}")
+	public void forPreenchidoOCampoPayloadCom(String payload) {
 		Na(EnterVehicleDataPage.class).preencherCampoPayload(payload);
 	}
 
-	@Quando("preencher o campo Total Weight com {string}")
-	public void preencherOCampoTotalWeightCom(String totalWeight) {
+	@Quando("for preenchido o campo Total Weight com {string}")
+	public void forPreenchidoOCampoTotalWeightCom(String totalWeight) {
 		Na(EnterVehicleDataPage.class).preenchertotalWeight(totalWeight);
 	}
 
-	@Quando("preencher o campo List Price com {string}")
-	public void preencherOCampoListPriceCom(String listPrice) {
+	@Quando("for preenchido o campo List Price com {string}")
+	public void forPreenchidoOCampoListPriceCom(String listPrice) {
 		Na(EnterVehicleDataPage.class).preencherCampoListPrice(listPrice);
 	}
 
-	@Quando("preencher o campo License Plate Number com {string}")
-	public void preencherOCampoLicensePlateNumberCom(String licensePlateNumber) {
+	@Quando("for preenchido o campo License Plate Number com {string}")
+	public void forPreenchidoOCampoLicensePlateNumberCom(String licensePlateNumber) {
 		Na(EnterVehicleDataPage.class).preencherCampoLicencePlateNumber(licensePlateNumber);
 	}
 
-	@Quando("preencher o campo Annual Mileage com {string}")
-	public void preencherOCampoAnnualMileageCom(String annualMileage) {
+	@Quando("for preenchido o campo Annual Mileage com {string}")
+	public void forPreenchidoOCampoAnnualMileageCom(String annualMileage) {
 		Na(EnterVehicleDataPage.class).preencherCampoAnnualMileage(annualMileage);
 	}
 
-	@Quando("acionar o primeiro botao Next")
-	public void acionarOPrimeiroBotONext() {
+	@Quando("for acionado o primeiro botao Next")
+	public void forAcionadoOPrimeiroBotaoNext() {
 		Na(EnterVehicleDataPage.class).acionarBotaoNextInsurantData();
 	}
 
-	@Entao("o sistema me direciona para a tela Enter Insurance Data")
-	public void oSistemaMeDirecionaTelaEnterInsuranceData() {
-	    assertEquals("First Name", driver.findElement(By.xpath("//label[text()='First Name']")).getText());
+	@Entao("o sistema direciona o usuario para a tela Enter Insurance Data")
+	public void oSistemaDirecionaOUsuarioParaATelaEnterInsuranceData() {
+		Na(EnterVehicleDataPage.class).validarRedirecionamentoParaProxPagina();
 	}
 
 }

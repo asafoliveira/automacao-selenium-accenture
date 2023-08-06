@@ -1,11 +1,17 @@
 package pageObjects;
 
+import static org.junit.Assert.assertEquals;
+import static utils.Utils.*;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EnterVehicleDataPage {
+import core.BasePage;
 
-	//Campos
+public class EnterVehicleDataPage extends BasePage {
+
+	// Campos da página mapeados através da anotacao @FindBy
 	@FindBy(id = "make")
 	private WebElement campoMake;
 
@@ -72,97 +78,99 @@ public class EnterVehicleDataPage {
 	@FindBy(id = "nextenterinsurantdata")
 	private WebElement botaoNextInsurantData;
 
-	//Métodos
+	// Métodos de acoes encapsulando os campos mapeados da página
 	public void acionarCampoMake() {
-		campoMake.click();
+		clicar(campoMake);
 	}
 
 	public void selecionarOpcaoAudi() {
-		opcaoAudi.click();
+		clicar(opcaoAudi);
 	}
 
 	public void acionarCampoModel() {
-		campoModel.click();
+		clicar(campoModel);
 	}
 
 	public void selecionarOpcaoScooter() {
-		opcaoScooter.click();
+		clicar(opcaoScooter);
 	}
 
 	public void preencherCampoCylinderCapacity(String cylinderCapacity) {
-		campoCylinderCapacity.sendKeys(cylinderCapacity);
+		escrever(campoCylinderCapacity, cylinderCapacity);
 	}
 
 	public void preencherCampoEnginePerformance(String enginePerformance) {
-		campoEnginePerformance.sendKeys(enginePerformance);
-	}
-
-	public void preencherDateOfManufacture(String dateOfManufacture) {
-		campoEnginePerformance.sendKeys(dateOfManufacture);
+		escrever(campoEnginePerformance, enginePerformance);
 	}
 
 	public void acionarBotaoDateOfManufacture() {
-		botaoDateOfManufacture.click();
+		clicar(botaoDateOfManufacture);
 	}
 
 	public void acionarBotaoMesAnterior() {
-		botaoMesAnterior.click();
+		clicar(botaoMesAnterior);
 	}
 
 	public void selecionarData010723() {
-		data010723.click();
+		clicar(data010723);
 	}
 
 	public void acionarCampoNumberOfSeats1() {
-		campoNumberOfSeats1.click();
+		clicar(campoNumberOfSeats1);
 	}
 
 	public void selecionarOpcao1CampoNumberOfSeats1() {
-		opcao1CampoNumberOfSeats1.click();
+		clicar(opcao1CampoNumberOfSeats1);
 	}
 
 	public void selecionarOpcaoYes() {
-		opcaoYes.click();
+		clicar(opcaoYes);
 	}
 
 	public void acionarCampoNumberOfSeats2() {
-		campoNumberOfSeats2.click();
+		clicar(campoNumberOfSeats2);
 	}
 
 	public void selecionarOpcao1CampoNumberOfSeats2() {
-		opcao1CampoNumberOfSeats2.click();
+		clicar(opcao1CampoNumberOfSeats2);
 	}
 
 	public void acionarCampoFuelType() {
-		campoFuelType.click();
+		clicar(campoFuelType);
 	}
 
 	public void selecionarOpcaoPetrol() {
-		opcaoPetrol.click();
+		clicar(opcaoPetrol);
 	}
 
 	public void preencherCampoPayload(String payload) {
-		campoPayload.sendKeys(payload);
+		escrever(campoPayload, payload);
 	}
 
 	public void preenchertotalWeight(String totalWeight) {
-		campoTotalWeight.sendKeys(totalWeight);
+		escrever(campoTotalWeight, totalWeight);
 	}
 
 	public void preencherCampoListPrice(String listPrice) {
-		campoListPrice.sendKeys(listPrice);
+		escrever(campoListPrice, listPrice);
 	}
 
 	public void preencherCampoLicencePlateNumber(String licencePlateNumber) {
-		campoLicencePlateNumber.sendKeys(licencePlateNumber);
+		escrever(campoLicencePlateNumber, licencePlateNumber);
 	}
 
 	public void preencherCampoAnnualMileage(String annualMileage) {
-		campoAnnualMileage.sendKeys(annualMileage);
+		escrever(campoAnnualMileage, annualMileage);
 	}
 
 	public void acionarBotaoNextInsurantData() {
-		botaoNextInsurantData.click();
+		clicar(botaoNextInsurantData);
+	}
+
+	//Validacao para verificar se o sistemar redirecionou o usuario para a pagina
+	//Enter Insurant Data, atraves do mapeamento de um dos campos da página
+	public void validarRedirecionamentoParaProxPagina() {
+		assertEquals("First Name", driver.findElement(By.xpath("//label[text()='First Name']")).getText());
 	}
 
 	public void preencherDadosDoVeiculo(String cylinderCapacity, String enginePerformance, String payload,
@@ -189,6 +197,7 @@ public class EnterVehicleDataPage {
 		preencherCampoLicencePlateNumber(licensePlateNumber);
 		preencherCampoAnnualMileage(annualMileage);
 		acionarBotaoNextInsurantData();
+		validarRedirecionamentoParaProxPagina();
 	}
 
 }

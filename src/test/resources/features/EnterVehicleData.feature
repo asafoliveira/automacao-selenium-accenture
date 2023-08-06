@@ -1,8 +1,8 @@
 #language: pt
 #encoding: UTF-8
 
-@PreencherDadosVeículo
-Funcionalidade: Preencher os dados do meu veiculo 
+@PreencherDadosProduto
+Funcionalidade: Preencher os dados do produto 
 
 	@PreencherDadosVeículoSucesso @SmokeTest
 	Cenario: Preencher dados do veiculo com sucesso

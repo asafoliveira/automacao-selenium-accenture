@@ -167,12 +167,14 @@ public class EnterVehicleDataPage extends BasePage {
 		clicar(botaoNextInsurantData);
 	}
 
-	//Validacao para verificar se o sistemar redirecionou o usuario para a pagina
-	//Enter Insurant Data, atraves do mapeamento de um dos campos da página
+	//Validacao para verificar se o sistemar redirecionou o usuario para a página
+	//Enter Insurant Data, atraves do mapeamento de um dos campos da página seguinte
 	public void validarRedirecionamentoParaProxPagina() {
 		assertEquals("First Name", driver.findElement(By.xpath("//label[text()='First Name']")).getText());
 	}
-
+	
+	// Método que encapsula todos os métodos da page e realiza a rotina de
+	// preenchimento dos dados do veículo.
 	public void preencherDadosDoVeiculo(String cylinderCapacity, String enginePerformance, String payload,
 			String totalWeight, String listPrice, String licensePlateNumber, String annualMileage) {
 		acionarCampoMake();

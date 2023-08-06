@@ -1,5 +1,9 @@
 package pageObjects;
 
+import static org.junit.Assert.assertEquals;
+import static utils.Utils.*;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -123,10 +127,18 @@ public class EnterInsurantDataPage extends BasePage {
 		clicar(botaoNextProductData);
 	}
 
-	// Método que encapsula todos os métodos da page e realiza a rotina de
-	// preenchimento dos dados pessoais.
+	//Validacao para verificar se o sistemar redirecionou o usuario para a página
+	//Enter Insurant Data, atraves do mapeamento de um dos campos da página seguinte 
+	public void validarRedirecionamentoParaProxPagina() {
+		assertEquals("Start Date", driver.findElement(By.xpath("//label[text()='Start Date']")).getText());
+	}
+
+	//Método que encapsula todos os métodos da page e realiza a rotina de
+	//preenchimento dos dados pessoais.
 	public void preencherDadosPessoais(String firstName, String lastName, String dateOfBirth, String streetAddress,
 			String zipCode, String city, String website) {
+		Na(EnterVehicleDataPage.class).preencherDadosDoVeiculo("1000", "2000", "200", "500", "35000", "54321@",
+				"70000");
 		preencherCampoFirstName(firstName);
 		preencherCampoLastNane(lastName);
 		preencherCampoDateOfBirth(dateOfBirth);

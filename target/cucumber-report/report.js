@@ -1,27 +1,24 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/EnterInsurantData.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/EnterProductData.feature");
 formatter.feature({
   "name": "Preencher os meus dados pessoais",
   "description": "",
   "keyword": "Funcionalidade",
   "tags": [
     {
-      "name": "@EnterInsurantData"
+      "name": "@implementar"
     }
   ]
 });
 formatter.scenario({
-  "name": "Enter Insurant Data Sucessfuly",
+  "name": "Preencher os dados do produto com sucesso",
   "description": "",
   "keyword": "Cenario",
   "tags": [
     {
-      "name": "@EnterInsurantData"
+      "name": "@implementar"
     },
     {
-      "name": "@PreencherDadosPessoaisComSucesso"
-    },
-    {
-      "name": "@SmokeTest"
+      "name": "@PreencherDadosDoProdutoComSucesso"
     }
   ]
 });
@@ -29,161 +26,151 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "que eu esteja acessando a pagina de Enter Insurant Data",
+  "name": "que o usuario esteja acessando a tela de Preencher Dados do Produto",
   "keyword": "Dado "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.queEuEstejaAcessandoAPaginaDeEnterInsurantData()"
+  "location": "EnterProductDataSteps.queOUsuarioEstejaAcessandoATelaDePreencherDadosDoProduto()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "eu preencher o campo First Name com \"Tester123$%\"",
+  "name": "for acionado o botao do campo Start Date",
   "keyword": "Quando "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.euPreencherOCampoFirstNameCom(String)"
+  "location": "EnterProductDataSteps.forAcionadoOBotaoDoCampoStartDate()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "eu preeencher o campo Last Name \"Automation456[]\"",
+  "name": "for acionado o botao de avancar um mes no calendario",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.euPreeencherOCampoLastName(String)"
+  "location": "EnterProductDataSteps.forAcionadoOBotaoDeAvancarUmMesNoCalendario()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "preencher o campo Date of Birth com \"08/25/1990\"",
+  "name": "for selecionada a data Vinte e Nove de Setembro de Dois Mil e Vinte e Tres",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.preencherOCampoDateOfBirthCom(String)"
+  "location": "EnterProductDataSteps.forSelecionadaADataVinteENoveDeSetembroDeDoisMilEVinteETres()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecionar a opcao Male no campo Gender",
+  "name": "for acionado o campo Insurance Sum",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.selecionarAOpcaoMaleNoCampoGender()"
+  "location": "EnterProductDataSteps.forAcionadoOCampoInsuranceSum()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "preencher o campo Street Address com \"Rua Automa��o, Av da Qualidade\"",
+  "name": "for selecionada a opcao Quinze Milhoes",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.preencherOCampoStreetAddressCom(String)"
+  "location": "EnterProductDataSteps.forSelecionadaAOpcaoQuinzeMilhoes()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "acionar o campo Country",
+  "name": "for acionado o campo Merit Rating",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.acionarOCampoCountry()"
+  "location": "EnterProductDataSteps.forAcionadoOCampoMeritRating()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecionar a opcao Brazil",
+  "name": "for selecionada a opcao Malus Doze",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.selecionarAOpcaoBrazil()"
+  "location": "EnterProductDataSteps.forSelecionadaAOpcaoMalusDoze()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "preencher o campo Zip Code com \"35537667\"",
+  "name": "for acionado o campo Damage Insurance",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.preencherOCampoZipCodeCom(String)"
+  "location": "EnterProductDataSteps.forAcionadoOCampoDamageInsurance()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "preencher o campo City com \"Itapecuru\"",
+  "name": "for selecionada a opcao Partial Coverage",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.preencherOCampoCityCom(String)"
+  "location": "EnterProductDataSteps.forSelecionadaAOpcaoPartialCoverage()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "acionar o campo Occupation",
+  "name": "forem seleciondas as todas as opcoes do campo Optional Products",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.acionarOCampoOccupation()"
+  "location": "EnterProductDataSteps.foremSeleciondasAsTodasAsOpcoesDoCampoOptionalProducts()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecionar a opcao Employee",
+  "name": "for acionado o campo Courtesy Car",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.selecionarAOpcaoEmployee()"
+  "location": "EnterProductDataSteps.forAcionadoOCampoCourtesyCar()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecionar todas as opcoes do campo Hobbies",
+  "name": "for selecionada a opcao Yes",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.selecionarTodasAsOpcoesDoCampoHobbies()"
+  "location": "EnterProductDataSteps.forSelecionadaAOpcaoYes()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "preencher o campo website com \"QAccenture.com\"",
+  "name": "for acionado o terceiro botao Next",
   "keyword": "E "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.preencherOCampoWebsiteCom(String)"
+  "location": "EnterProductDataSteps.forAcionadoOTerceiroBotaoNext()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "acionar o segundo botao Next",
-  "keyword": "E "
-});
-formatter.match({
-  "location": "EnterInsurantDataSteps.acionarOSegundoBotaoNext()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o sistema me direciona para a tela Enter Product Data",
+  "name": "o sistema me direciona para a tela de Opcoes de selecao de Preco",
   "keyword": "Entao "
 });
 formatter.match({
-  "location": "EnterInsurantDataSteps.oSistemaMeDirecionaParaATelaEnterProductData()"
+  "location": "EnterProductDataSteps.oSistemaMeDirecionaParaATelaDeOpcoesDeSelecaoDePreco()"
 });
 formatter.result({
   "status": "passed"

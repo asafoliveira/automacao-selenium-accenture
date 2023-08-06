@@ -5,7 +5,6 @@ import static utils.Utils.*;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import pageObjects.EnterVehicleDataPage;
 
 public class Hooks {
 

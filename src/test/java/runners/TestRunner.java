@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		plugin = {"pretty", "html:target/cucumber-report"},
 		features = "src/test/resources/features",
 		glue = "stepsDefinitions",
-		tags = "@EnterInsurantData",
+		tags = "@PreencherDadosDoProdutoComSucesso",
 		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
 		dryRun = false

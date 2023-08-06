@@ -4,19 +4,20 @@
 @implementar
 Funcionalidade: Preencher os meus dados pessoais
 
-	@PreencherDadosPessoaisComSucesso 
-	Cenario: Enter Insurant Data Sucessfuly
-		Quando eu preeencher o campo Last Name "Automation456[]"
-		E preencher o campo Date of Birth com "08/25/1990"
-		E selecionar a opcao Male no campo Gender
-		E preencher o campo Street Address com "Rua Automação, Av da Qualidade"
-		E acionar o campo Country 
-		E selecionar a opcao Brazil
-		E preencher o campo Zip Code com "35537667"
-		E preencher o campo City com "Itapecuru"
-		E acionar o campo Occupation 
-		E selecionar a opcao Employee	
-		E selecionar todas as opcoes do campo Hobbies 
-		E preencher o campo website com "QAccenture.com"
-		E acionar o segundo botao Next
-		Entao o sistema me direciona para a tela Enter Product Data
+	@PreencherDadosDoProdutoComSucesso 
+	Cenario: Preencher os dados do produto com sucesso
+		Dado que o usuario esteja acessando a tela de Preencher Dados do Produto
+		Quando for acionado o botao do campo Start Date
+		E for acionado o botao de avancar um mes no calendario
+		E for selecionada a data Vinte e Nove de Setembro de Dois Mil e Vinte e Tres
+		E for acionado o campo Insurance Sum
+		E for selecionada a opcao Quinze Milhoes
+		E for acionado o campo Merit Rating
+		E for selecionada a opcao Malus Doze
+		E for acionado o campo Damage Insurance
+		E for selecionada a opcao Partial Coverage
+		E forem seleciondas as todas as opcoes do campo Optional Products
+		E for acionado o campo Courtesy Car
+		E for selecionada a opcao Yes
+		E for acionado o terceiro botao Next
+		Entao o sistema me direciona para a tela de Opcoes de selecao de Preco

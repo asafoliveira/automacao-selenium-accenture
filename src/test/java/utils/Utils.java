@@ -8,7 +8,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,11 +20,8 @@ public class Utils {
 	
 	public static WebDriver driver;
 
-	//o driver abre o navegador, e executa os testes.
-
+	//O driver abre o navegador, e executa os testes.
 	public static void acessarSistema() {
-		//ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--headless");
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();

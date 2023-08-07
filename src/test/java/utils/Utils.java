@@ -2,7 +2,6 @@ package utils;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,20 +17,42 @@ import io.cucumber.core.api.Scenario;
 
 public class Utils {
 	
+	public Utils() {}
+	
 	public static WebDriver driver;
 
-	//O driver abre o navegador, e executa os testes.
-	public static void acessarSistema() {
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
-		driver = new ChromeDriver();
+	public static WebDriver acessarSistema() {
+
+		switch (Propriedades.browser) {
+
+		case FIREFOX: {
+			System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\drivers\\geckodriver.exe");
+			driver = new FirefoxDriver();
+
+			break;
+		}
+
+		case CHROME: {
+			System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
+		}
+		}
+		driver.get("http://sampleapp.tricentis.com/101/app.php");
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-		driver.get("http://sampleapp.tricentis.com/101/app.php");
-	}
 
-	//Método que elimina a necessidade de instância dos
-	//objetos das classes para execução das ações
+		return driver;
+	}
+	
+	public static void fecharNavegador(){
+		driver.quit();
+	}
+	
+	//Metodo que elimina a necessidade de instancia dos
+	//objetos das classes para execucao das acoes
 	public static <T> T Na(Class<T> classe) {
 		return PageFactory.initElements(driver, classe);
 	}
@@ -41,26 +62,8 @@ public class Utils {
 		scenario.embed(screenshot, "image/png");
 	}
 
-	public static WebDriver getDriver(){
-		if(driver == null) {
-			switch (Propriedades.browser) {
-				case FIREFOX: driver = new FirefoxDriver(); break;
-				case CHROME: driver = new ChromeDriver(); break;
-			}
-			driver.manage().window().setSize(new Dimension(1200, 765));			
-		}
-		return driver;
-	}
-
-	public static void killDriver(){
-		if(driver != null) {
-			driver.quit();
-			driver = null;
-		}
-	}
-
 	public static void esperarElemento(WebElement elemento) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(elemento));
 	}
 

@@ -1,9 +1,5 @@
 package pageObjects;
 
-import static org.junit.Assert.assertEquals;
-import static utils.Utils.*;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -11,7 +7,7 @@ import core.BasePage;
 
 public class EnterVehicleDataPage extends BasePage {
 
-	// Campos da página mapeados através da anotacao @FindBy
+	// Campos da pagina mapeados atraves da anotacao @FindBy
 	@FindBy(id = "make")
 	private WebElement campoMake;
 
@@ -77,8 +73,11 @@ public class EnterVehicleDataPage extends BasePage {
 
 	@FindBy(id = "nextenterinsurantdata")
 	private WebElement botaoNextInsurantData;
+	
+	@FindBy(xpath = "//label[text()='First Name']")
+	private WebElement tituloFirstName;	
 
-	// Métodos de acoes encapsulando os campos mapeados da página
+	// Metodos de acoes encapsulando os campos mapeados da pagina
 	public void acionarCampoMake() {
 		clicar(campoMake);
 	}
@@ -167,14 +166,20 @@ public class EnterVehicleDataPage extends BasePage {
 		clicar(botaoNextInsurantData);
 	}
 
-	//Validacao para verificar se o sistemar redirecionou o usuario para a página
-	//Enter Insurant Data, atraves do mapeamento de um dos campos da página seguinte
-	public void validarRedirecionamentoParaProxPagina() {
-		assertEquals("First Name", driver.findElement(By.xpath("//label[text()='First Name']")).getText());
+	//Validacao para verificar se o sistema nao redirecionou o usuario para a pagina
+	//Enter Insurant Data, atraves de um AssertEquals
+	public void validarRedirecionamentoProxPagina() {
+		validacaoValorEsperado("First Name", tituloFirstName);
 	}
 	
-	// Método que encapsula todos os métodos da page e realiza a rotina de
-	// preenchimento dos dados do veículo.
+	//Validacao para verificar se o sistema nao redirecionou o usuario para a pagina
+	//Enter Insurant Data, atraves de um AssertNotEquals
+	public void validarFalhaRedirecionamentoProxPagina() {
+		validacaoValorNaoEsperado("First Name", tituloFirstName);
+	}
+	
+	// Metodo que encapsula todos os metodos da page e realiza a rotina de
+	// preenchimento dos dados do veiculo.
 	public void preencherDadosDoVeiculo(String cylinderCapacity, String enginePerformance, String payload,
 			String totalWeight, String listPrice, String licensePlateNumber, String annualMileage) {
 		acionarCampoMake();
@@ -199,7 +204,7 @@ public class EnterVehicleDataPage extends BasePage {
 		preencherCampoLicencePlateNumber(licensePlateNumber);
 		preencherCampoAnnualMileage(annualMileage);
 		acionarBotaoNextInsurantData();
-		validarRedirecionamentoParaProxPagina();
+		validarRedirecionamentoProxPagina();
 	}
 
 }

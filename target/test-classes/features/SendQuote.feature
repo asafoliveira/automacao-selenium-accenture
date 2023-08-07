@@ -1,22 +1,17 @@
 #language: pt
 #encoding: UTF-8
 
-@implementar
+@EnviarComentarios
 Funcionalidade: Preencher os meus dados pessoais
 
-	@PreencherDadosPessoaisComSucesso
-	Cenario: Enter Insurant Data Sucessfuly
-		Quando eu preeencher o campo Last Name "Automation456[]"
-		E preencher o campo Date of Birth com "08/25/1990"
-		E selecionar a opcao Male no campo Gender
-		E preencher o campo Street Address com "Rua Automação, Av da Qualidade"
-		E acionar o campo Country 
-		E selecionar a opcao Brazil
-		E preencher o campo Zip Code com "35537667"
-		E preencher o campo City com "Itapecuru"
-		E acionar o campo Occupation 
-		E selecionar a opcao Employee	
-		E selecionar todas as opcoes do campo Hobbies 
-		E preencher o campo website com "QAccenture.com"
-		E acionar o segundo botao Next
-		Entao o sistema me direciona para a tela Enter Product Data
+	@EnviarComentariosComSucesso @SmokeTest
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Silver
+		Dado que o usuario esteja acessando a tela de enviar comentarios
+		Quando for preenchido o campo e-mail com "automacaotestes@mail.com"
+		E for preenchido o campo Phone com "1234567890"
+		E for preencido o campo Username com "AsafQAccenture"
+		E for preencido o campo Password com "senhaForte123@"
+		E for preencido o campo Confirm Password com "senhaForte123@"
+		E for preencido o campo Comments com "Comentarios adicionados"
+		E for acionado o ultimo Botao Send 
+		Entao o sistema exibe a mensagem de e-mail enviado com sucesso

@@ -13,6 +13,18 @@ public class EnterVehicleDataSteps {
 	public void queOUsuarioAcioneOCampoMake() {
 		Na(EnterVehicleDataPage.class).acionarCampoMake();
 	}
+	
+	//Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
+	@Dado("que o usuario nao preencha os campos de dropdown e radio da pagina")
+	public void queOUsuarioNaoPreenchaOsCamposDeDropdownERadioDaPagina() {
+	    
+	}
+	
+	//Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
+	@Dado("que o usuario nao preencha os dados do veiculo")
+	public void queOUsuarioNaoPreenchaOsDadosDoVeiculo() {
+	    
+	}
 
 	@Quando("for selecionada a Opcao Audi")
 	public void forSelecionadaAOpcaoAudi() {
@@ -34,7 +46,7 @@ public class EnterVehicleDataSteps {
 		Na(EnterVehicleDataPage.class).preencherCampoCylinderCapacity(cylinderCapacity);
 	}
 
-	@Quando("for preenchido o campo Engine Performance com {string}")
+	@Quando("for preenchido o campo engine performance com {string}")
 	public void forPreenchidoOCampoEnginePerformanceCom(String enginePerformance) {
 		Na(EnterVehicleDataPage.class).preencherCampoEnginePerformance(enginePerformance);
 	}
@@ -42,7 +54,6 @@ public class EnterVehicleDataSteps {
 	@Quando("for acionado o botao do campo Date of Manufacture")
 	public void forAcionadoOBotaoDoCampoDateOfManufacture() {
 		Na(EnterVehicleDataPage.class).acionarBotaoDateOfManufacture();
-		;
 	}
 
 	@Quando("for acionado o botao de voltar um mes no calendario")
@@ -55,7 +66,7 @@ public class EnterVehicleDataSteps {
 		Na(EnterVehicleDataPage.class).selecionarData010723();
 	}
 
-	@Quando("for acionado o primeiro campo Number of seats")
+	@Quando("for acionado o primeiro campo Number of Seats")
 	public void forAcionadoOPrimeiroCampoNumberOfSeats() {
 		Na(EnterVehicleDataPage.class).acionarCampoNumberOfSeats1();
 	}
@@ -70,7 +81,7 @@ public class EnterVehicleDataSteps {
 		Na(EnterVehicleDataPage.class).selecionarOpcaoYes();
 	}
 
-	@Quando("for acionado o segundo campo Number of seats")
+	@Quando("for acionado o segundo campo Number of Seats")
 	public void forAcionadoOSegundoCampoNumberOfSeats() {
 		Na(EnterVehicleDataPage.class).acionarCampoNumberOfSeats2();
 	}
@@ -120,9 +131,14 @@ public class EnterVehicleDataSteps {
 		Na(EnterVehicleDataPage.class).acionarBotaoNextInsurantData();
 	}
 
-	@Entao("o sistema direciona o usuario para a tela Enter Insurance Data")
-	public void oSistemaDirecionaOUsuarioParaATelaEnterInsuranceData() {
-		Na(EnterVehicleDataPage.class).validarRedirecionamentoParaProxPagina();
+	@Entao("o sistema direciona o usuario para a tela de inserir dados pessoais")
+	public void oSistemaDirecionaOUsuarioParaATelaDeInserirDadosPessoais() {
+		Na(EnterVehicleDataPage.class).validarRedirecionamentoProxPagina();
+	}
+	
+	@Entao("o sistema nao direciona o usuario para a tela de inserir dados pessoais")
+	public void oSistemaNaoDirecionaOUsuarioParaATelaDeInserirDadosPessoais() {
+		Na(EnterVehicleDataPage.class).validarFalhaRedirecionamentoProxPagina();
 	}
 
 }

@@ -10,10 +10,15 @@ import pageObjects.EnterProductDataPage;
 
 public class EnterProductDataSteps {
 
-	@Dado("que o usuario esteja acessando a tela de Preencher Dados do Produto")
+	@Dado("que o usuario esteja acessando a tela de preencher dados do produto")
 	public void queOUsuarioEstejaAcessandoATelaDePreencherDadosDoProduto() {
 		Na(EnterInsurantDataPage.class).preencherDadosPessoais("Tester", "Automation", "08/25/1990",
-				"Rua Automação, Av da Qualidade", "35537667", "Itapecuru", "QAccenture.com");
+				"Rua Automacao, Av da Qualidade", "12345678", "Itapecuru", "QAccenture.will");
+	}
+	
+	@Dado("que o usuario nao preencha os dados do produto")
+	public void queOUsuarioNaoPreenchaOsDadosDoProduto() {
+	   
 	}
 
 	@Quando("for acionado o botao do campo Start Date")
@@ -83,7 +88,13 @@ public class EnterProductDataSteps {
 
 	@Entao("o sistema me direciona para a tela de Opcoes de selecao de Preco")
 	public void oSistemaMeDirecionaParaATelaDeOpcoesDeSelecaoDePreco() {
-		Na(EnterProductDataPage.class).validarRedirecionamentoParaProxPagina();
+		Na(EnterProductDataPage.class).validarRedirecionamentoProxPagina();
+	}
+	
+	@Entao("o sistema nao direciona o usuario para a tela de selecao de opcoes de preco")
+	public void oSistemaNaoDirecionaOUsuarioParaATelaDeSelecaoDeOpcoesDePreco() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
 	}
 
 }

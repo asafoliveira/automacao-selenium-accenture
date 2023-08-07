@@ -10,10 +10,20 @@ import pageObjects.EnterVehicleDataPage;
 
 public class EnterInsurantDataSteps {
 	
-	@Dado("que o usuario esteja acessando a pagina de Inserir Dados Pessoais")
+	@Dado("que o usuario esteja acessando a pagina de inserir dados pessoais")
 	public void queOUsuarioEstejaAcessandoAPaginaDeInserirDadosPessoais() {
 		Na(EnterVehicleDataPage.class).preencherDadosDoVeiculo("1000", "2000", "200", "500", "35000", "K@3!90",
 				"70000");
+	}
+	
+	@Dado("que o usuario nao preencha os campos de dropdown, radio e checkbox da pagina")
+	public void queOUsuarioNaoPreenchaOsCamposDeDropdownRadioECheckboxDaPagina() {
+	    
+	}
+	
+	@Dado("que o usuario nao preencha os dados pessoais")
+	public void queOUsuarioNaoPreenchaOsDadosPessoais() {
+	    
 	}
 	
 	@Quando("for preenchido o campo First Name com {string}")
@@ -66,7 +76,7 @@ public class EnterInsurantDataSteps {
 		Na(EnterInsurantDataPage.class).acionarCampoOcuppation();
 	}
 
-	@Quando("for selecionada a opcao Employee")
+	@Quando("for selecionada a opcao employee")
 	public void forSelecionadaAOpcaoEmployee() {
 		Na(EnterInsurantDataPage.class).selecionarOpcaoEmployee();
 	}
@@ -76,7 +86,7 @@ public class EnterInsurantDataSteps {
 		Na(EnterInsurantDataPage.class).selecionarHobbies();
 	}
 
-	@Quando("for preenchido o campo website com {string}")
+	@Quando("for preenchido o campo Website com {string}")
 	public void forPreenchidoOCampoWebsiteCom(String website) {
 		Na(EnterInsurantDataPage.class).preencherCampoWebsite(website);
 	}
@@ -86,9 +96,14 @@ public class EnterInsurantDataSteps {
 		Na(EnterInsurantDataPage.class).acionarBotaoNextProductData();
 	}
 
-	@Entao("o sistema direciona o usuario para a tela Enter Product Data")
-	public void oSistemaDirecionaOUsuarioParaATelaEnterProductData() {
-		Na(EnterInsurantDataPage.class).validarRedirecionamentoParaProxPagina();
+	@Entao("o sistema direciona o usuario para a tela de inserir dados do produto")
+	public void oSistemaDirecionaOUsuarioParaATelaDeInserirDadosDoProduto() {
+		Na(EnterInsurantDataPage.class).validarRedirecionamentoProxPagina();
+	}
+	
+	@Entao("o sistema nao direciona o usuario para a tela de inserir dados do produto")
+	public void oSistemaNaoDirecionaOUsuarioParaATelaDeInserirDadosDoProduto() {
+		Na(EnterInsurantDataPage.class).validarFalhaRedirecionamentoProxPagina();
 	}
 
 }

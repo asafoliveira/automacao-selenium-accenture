@@ -1,9 +1,7 @@
 package pageObjects;
 
-import static org.junit.Assert.assertEquals;
 import static utils.Utils.*;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -11,7 +9,7 @@ import core.BasePage;
 
 public class EnterInsurantDataPage extends BasePage {
 
-	// Campos da página mapeados através da anotacao @FindBy
+	// Campos da pagina mapeados atraves da anotacao @FindBy
 	@FindBy(id = "firstname")
 	private WebElement campoFirstName;
 
@@ -65,8 +63,11 @@ public class EnterInsurantDataPage extends BasePage {
 
 	@FindBy(id = "nextenterproductdata")
 	private WebElement botaoNextProductData;
-
-	// Métodos de acoes encapsulando os campos mapeados da página
+	
+	@FindBy(xpath = "//label[text()='Start Date']")
+	private WebElement tituloStartDate;
+	
+	// Mï¿½todos de acoes encapsulando os campos mapeados da pï¿½gina
 	public void preencherCampoFirstName(String firstName) {
 		escrever(campoFirstName, firstName);
 	}
@@ -127,13 +128,17 @@ public class EnterInsurantDataPage extends BasePage {
 		clicar(botaoNextProductData);
 	}
 
-	//Validacao para verificar se o sistemar redirecionou o usuario para a página
-	//Enter Insurant Data, atraves do mapeamento de um dos campos da página seguinte 
-	public void validarRedirecionamentoParaProxPagina() {
-		assertEquals("Start Date", driver.findElement(By.xpath("//label[text()='Start Date']")).getText());
+	//Validacao para verificar se o sistemar redirecionou o usuario para a pï¿½gina
+	//Enter Insurant Data, atraves do mapeamento de um dos campos da pï¿½gina seguinte 
+	public void validarRedirecionamentoProxPagina() {
+		validacaoValorEsperado("Start Date", tituloStartDate);
+	}
+	
+	public void validarFalhaRedirecionamentoProxPagina() {
+		validacaoValorNaoEsperado("Start Date", tituloStartDate);
 	}
 
-	//Método que encapsula todos os métodos da page e realiza a rotina de
+	//Mï¿½todo que encapsula todos os mï¿½todos da page e realiza a rotina de
 	//preenchimento dos dados pessoais.
 	public void preencherDadosPessoais(String firstName, String lastName, String dateOfBirth, String streetAddress,
 			String zipCode, String city, String website) {
@@ -153,6 +158,7 @@ public class EnterInsurantDataPage extends BasePage {
 		selecionarHobbies();
 		preencherCampoWebsite(website);
 		acionarBotaoNextProductData();
+		validarRedirecionamentoProxPagina();
 	}
 
 }

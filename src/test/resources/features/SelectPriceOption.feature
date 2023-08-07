@@ -1,22 +1,40 @@
 #language: pt
 #encoding: UTF-8
 
-@implementar
+@SelecaoDeOpcoesDePreco
 Funcionalidade: Preencher os meus dados pessoais
 
-	@PreencherDadosPessoaisComSucesso
-	Cenario: Enter Insurant Data Sucessfuly
-		Quando eu preeencher o campo Last Name "Automation456[]"
-		E preencher o campo Date of Birth com "08/25/1990"
-		E selecionar a opcao Male no campo Gender
-		E preencher o campo Street Address com "Rua Automação, Av da Qualidade"
-		E acionar o campo Country 
-		E selecionar a opcao Brazil
-		E preencher o campo Zip Code com "35537667"
-		E preencher o campo City com "Itapecuru"
-		E acionar o campo Occupation 
-		E selecionar a opcao Employee	
-		E selecionar todas as opcoes do campo Hobbies 
-		E preencher o campo website com "QAccenture.com"
-		E acionar o segundo botao Next
-		Entao o sistema me direciona para a tela Enter Product Data
+	@SelecionarOpcoesDePrecoSucessoOpcaoSilver @SmokeTest
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Silver
+		Dado que o usuario esteja acessando a tela de Selecao de Opcoes de Preco
+		Quando for selecionada a Opcao Silver no campo Select Option
+		E for acionado o quarto botao Next
+		Entao o sistema direciona o usuario para a tela de enviar comentarios 
+		
+	@SelecionarOpcoesDePrecoSucessoOpcaoGold @SmokeTest	
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Gold
+		Dado que o usuario esteja acessando a tela de Selecao de Opcoes de Preco
+		Quando for selecionada a Opcao Gold no campo Select Option
+		E for acionado o quarto botao Next
+		Entao o sistema direciona o usuario para a tela de enviar comentarios 
+		
+	@SelecionarOpcoesDePrecoSucessoOpcaoPlatinum @SmokeTest	
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Platinum
+		Dado que o usuario esteja acessando a tela de Selecao de Opcoes de Preco
+		Quando for selecionada a Opcao Platinum no campo Select Option
+		E for acionado o quarto botao Next
+		Entao o sistema direciona o usuario para a tela de enviar comentarios 
+		
+	@SelecionarOpcoesDePrecoSucessoOpcaoUltimate @SmokeTest	
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Ultimate
+		Dado que o usuario esteja acessando a tela de Selecao de Opcoes de Preco
+		Quando for selecionada a Opcao Ultimate no campo Select Option
+		E for acionado o quarto botao Next
+		Entao o sistema direciona o usuario para a tela de enviar comentarios  
+		
+	@NaoSelecionarOpcaoDePreco @SmokeTest	
+	Cenario: Selecionar Opcoes de Preco com Sucesso opcao Ultimate
+		Dado que o usuario esteja acessando a tela de Selecao de Opcoes de Preco
+		Quando nao for selecionada uma Opcao de Preco
+		Entao o sistema nao direciona o usuario para a tela de enviar comentarios
+		

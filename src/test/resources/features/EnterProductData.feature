@@ -1,12 +1,12 @@
 #language: pt
 #encoding: UTF-8
 
-@implementar
+@PreencherDadosProduto
 Funcionalidade: Preencher os meus dados pessoais
 
-	@PreencherDadosDoProdutoComSucesso 
+	@PreencherDadosProdutoComSucesso @SmokeTest
 	Cenario: Preencher os dados do produto com sucesso
-		Dado que o usuario esteja acessando a tela de Preencher Dados do Produto
+		Dado que o usuario esteja acessando a tela de preencher dados do produto
 		Quando for acionado o botao do campo Start Date
 		E for acionado o botao de avancar um mes no calendario
 		E for selecionada a data Vinte e Nove de Setembro de Dois Mil e Vinte e Tres
@@ -21,3 +21,10 @@ Funcionalidade: Preencher os meus dados pessoais
 		E for selecionada a opcao Yes
 		E for acionado o terceiro botao Next
 		Entao o sistema me direciona para a tela de Opcoes de selecao de Preco
+		
+	@NãoPreencherDadosProduto @SmokeTest
+  Cenario: Nao preencher os dados do produto
+  	Dado que o usuario esteja acessando a tela de preencher dados do produto
+    E que o usuario nao preencha os dados do produto
+    Quando for acionado o terceiro botao Next
+    Entao o sistema nao direciona o usuario para a tela de selecao de opcoes de preco

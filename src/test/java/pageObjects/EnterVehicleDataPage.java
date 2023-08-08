@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static utils.Utils.*;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -73,12 +75,13 @@ public class EnterVehicleDataPage extends BasePage {
 
 	@FindBy(id = "nextenterinsurantdata")
 	private WebElement botaoNextInsurantData;
-	
+
 	@FindBy(xpath = "//label[text()='First Name']")
-	private WebElement tituloFirstName;	
+	private WebElement tituloFirstName;
 
 	// Metodos de acoes encapsulando os campos mapeados da pagina
 	public void acionarCampoMake() {
+		esperarElemento(campoMake);
 		clicar(campoMake);
 	}
 
@@ -166,20 +169,20 @@ public class EnterVehicleDataPage extends BasePage {
 		clicar(botaoNextInsurantData);
 	}
 
-	//Validacao para verificar se o sistema nao redirecionou o usuario para a pagina
-	//Enter Insurant Data, atraves de um AssertEquals
+	// Validacao para verificar se o sistema redirecionou o usuario para a pagina
+	// Enter Insurant Data
 	public void validarRedirecionamentoProxPagina() {
 		validacaoValorEsperado("First Name", tituloFirstName);
 	}
-	
-	//Validacao para verificar se o sistema nao redirecionou o usuario para a pagina
-	//Enter Insurant Data, atraves de um AssertNotEquals
+
+	// Validacao para verificar se o sistema nao redirecionou o usuario para a
+	// pagina Enter Insurant Data
 	public void validarFalhaRedirecionamentoProxPagina() {
 		validacaoValorNaoEsperado("First Name", tituloFirstName);
 	}
-	
-	// Metodo que encapsula todos os metodos da page e realiza a rotina de
-	// preenchimento dos dados do veiculo.
+
+	// Metodo que encapsula os metodos essenciais da page e realiza a rotina de
+	// preenchimento dos dados do veiculo
 	public void preencherDadosDoVeiculo(String cylinderCapacity, String enginePerformance, String payload,
 			String totalWeight, String listPrice, String licensePlateNumber, String annualMileage) {
 		acionarCampoMake();

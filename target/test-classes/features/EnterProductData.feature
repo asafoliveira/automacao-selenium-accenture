@@ -2,7 +2,7 @@
 #encoding: UTF-8
 
 @PreencherDadosProduto
-Funcionalidade: Preencher os meus dados pessoais
+Funcionalidade: Preencher os dados do produto
 
 	@PreencherDadosProdutoComSucesso @SmokeTest
 	Cenario: Preencher os dados do produto com sucesso

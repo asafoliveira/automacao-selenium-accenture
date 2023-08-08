@@ -9,6 +9,7 @@ import core.BasePage;
 
 public class SelectPriceOptionPage extends BasePage {
 	
+	// Campos da pagina mapeados atraves da anotacao @FindBy
 	@FindBy(xpath = "//th[2]/label[1]/span")
 	private WebElement opcaoSilver;
 	
@@ -27,7 +28,7 @@ public class SelectPriceOptionPage extends BasePage {
 	@FindBy(xpath = "//label[text()='E-Mail']")
 	private WebElement tituloEmail;
 
-	
+	// Metodos de acoes encapsulando os campos mapeados da pagina
 	public void selecionarOpcaoSilver() {
 		clicar(opcaoSilver);
 	}
@@ -40,7 +41,6 @@ public class SelectPriceOptionPage extends BasePage {
 		clicar(opcaoPlatinum);
 	}
 	
-	
 	public void selecionarOpcaoUltimate() {
 		clicar(opcaoUltimate);
 	}
@@ -48,15 +48,21 @@ public class SelectPriceOptionPage extends BasePage {
 	public void acionarBotaoNextSendQuote() {
 		clicar(botaoNextSendQuote);
 	}
-
+	
+	// Validacao para verificar se o sistema redirecionou o usuario para a pagina
+	// Send Quotes, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarRedirecionamentoProxPagina() {
 		validacaoValorEsperado("E-Mail", tituloEmail);
 	}
 	
+	// Validacao para verificar se o sistema nao redirecionou o usuario para a pagina
+	// Send Quotes, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarFalhaRedirecionamentoProxPagina() {
 		validacaoValorNaoEsperado("E-Mail", tituloEmail);
 	}
 	
+	// Metodos que encapsulam os metodos essenciais da page e realiza a rotina de
+	// Selecao de Opcao de Preco, com as opcoes disponiveis na pagina
 	public void selecionarOpcaoDePrecoSilver() {
 		Na(EnterProductDataPage.class).preencherDadosDoProduto();
 		selecionarOpcaoSilver();

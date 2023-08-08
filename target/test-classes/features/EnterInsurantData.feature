@@ -41,7 +41,7 @@ Funcionalidade: Preencher os dados pessoais
     E for preenchido o campo City com <city>
     E for preenchido o campo Website com "<website>"
     E for acionado o segundo botao Next
-    Entao o sistema nao direciona o usuario para a tela de inserir dados do produto 
+    Entao o sistema nao direciona o usuario para a tela de inserir dados do produto
 
     Exemplos: 
       | firstName    | lastName      | date         | streetAdress     | zipCode   | city                      | website            |
@@ -52,7 +52,34 @@ Funcionalidade: Preencher os dados pessoais
 
   @NãoPreencherDadosPessoais @SmokeTest
   Cenario: Nao preencher os dados pessoais
-  	Dado que o usuario esteja acessando a pagina de inserir dados pessoais
+    Dado que o usuario esteja acessando a pagina de inserir dados pessoais
     E que o usuario nao preencha os dados pessoais
     Quando for acionado o segundo botao Next
-    Entao o sistema nao direciona o usuario para a tela de inserir dados do produto     
+    Entao o sistema nao direciona o usuario para a tela de inserir dados do produto
+    
+  @ValidarLimiteCaracteresCampoFirstName @ComponentTest
+  Cenario: Validar limite de caracteres do campo First Name
+  	Dado que o usuario esteja acessando a pagina de inserir dados pessoais
+  	Quando for preenchido o campo First Name com um texto maior que trezentos caracteres "First Name"
+  	Entao o sistema informa que o campo FirstName esta ok
+ 
+	@ValidarLimiteCaracteresCampoLastName @ComponentTest
+  Cenario: Validar limite de caracteres do campo Last Name
+  	Dado que o usuario esteja acessando a pagina de inserir dados pessoais
+  	Quando for preenchido o campo Last Name com um texto maior que trezentos caracteres "Last Name"
+  	Entao o sistema informa que o campo LastName esta ok
+  	
+ 	@ValidarLimiteCaracteresCampoStreetAddress @ComponentTest
+  Cenario: Validar limite de caracteres do campo Street Address
+  	Dado que o usuario esteja acessando a pagina de inserir dados pessoais
+  	Quando for preenchido o campo Street Address com um texto maior que trezentos caracteres "Rua"
+  	Entao o sistema informa que o campo Street Address esta ok
+  	
+	@ValidarLimiteCaracteresCampoWebSite @ComponentTest
+  Cenario: Validar limite de caracteres do campo Website
+  	Dado que o usuario esteja acessando a pagina de inserir dados pessoais
+  	Quando for preenchido o campo Webiste com um texto maior que trezentos caracteres ".com"
+  	Entao o sistema informa que o campo Website esta ok
+  	
+ 
+ 

@@ -1,7 +1,7 @@
 #language: pt
 #encoding: UTF-8
 @PreencherDadosVeiculo
-Funcionalidade: Preencher os dados do produto
+Funcionalidade: Preencher os dados do veiculo
 
   @PreencherDadosVeiculoComSucesso @SmokeTest
   Esquema do Cenario: Preencher dados do veiculo com sucesso
@@ -55,10 +55,9 @@ Funcionalidade: Preencher os dados do produto
       |             2001 |              2001 |    1001 |       50001 |    100001 | "123456789010" |        100001 |
       |            20000 |             20000 |   28957 |      499999 |    777777 | "!!!???###&&&" |      50000000 |
       |           222222 |                 0 | 2000000 |     5000000 |  50000000 | "Teste123@$!"  |             7 |
-      
+
   @NãoPreencherDadosVeiculo @SmokeTest
-  Cenario: Nao preencher os dados do veiculo 
+  Cenario: Nao preencher os dados do veiculo
     Dado que o usuario nao preencha os dados do veiculo
     Quando for acionado o primeiro botao Next
     Entao o sistema nao direciona o usuario para a tela de inserir dados pessoais
-    

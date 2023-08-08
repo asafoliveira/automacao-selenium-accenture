@@ -9,7 +9,7 @@ import core.BasePage;
 
 public class EnterProductDataPage extends BasePage {
 
-	// Campos da p�gina mapeados atrav�s da anotacao @FindBy
+	// Campos da pagina mapeados atraves da anotacao @FindBy
 	@FindBy(id = "openstartdatecalender")
 	private WebElement botaoStartDate;
 
@@ -108,12 +108,16 @@ public class EnterProductDataPage extends BasePage {
 	public void acionarBotaoNextPriceAction() {
 		clicar(botaoNextPriceAction);
 	}
-
+	
+	// Validacao para verificar se o sistema redirecionou o usuario para a pagina
+	// Select Price Options, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarRedirecionamentoProxPagina() {
 		validacaoValorEsperado("Silver", tituloSilver);
 		
 	}
 	
+	// Validacao para verificar se o sistema nao redirecionou o usuario para a
+	// Select Price Options, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarFalhaRedirecionamentoProxPagina() {
 		validacaoValorNaoEsperado("Silver", tituloSilver);
 	}

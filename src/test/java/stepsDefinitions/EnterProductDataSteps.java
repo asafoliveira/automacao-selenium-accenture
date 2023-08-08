@@ -10,15 +10,22 @@ import pageObjects.EnterProductDataPage;
 
 public class EnterProductDataSteps {
 
+	// Classe com os metodos gerados a partir do passo a passo descrito no Gherkin
+	// das features do Cucumber. Os metodos dessa pagina chamam o metodo "Na" dentro
+	// da Utils, passando como paramentro a classe e o metodo com a acao a ser executada
+	
+	/*********Steps*********/
+
 	@Dado("que o usuario esteja acessando a tela de preencher dados do produto")
 	public void queOUsuarioEstejaAcessandoATelaDePreencherDadosDoProduto() {
 		Na(EnterInsurantDataPage.class).preencherDadosPessoais("Tester", "Automation", "08/25/1990",
 				"Rua Automacao, Av da Qualidade", "12345678", "Itapecuru", "QAccenture.will");
 	}
-	
+
+	// Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
 	@Dado("que o usuario nao preencha os dados do produto")
 	public void queOUsuarioNaoPreenchaOsDadosDoProduto() {
-	   
+
 	}
 
 	@Quando("for acionado o botao do campo Start Date")
@@ -45,7 +52,7 @@ public class EnterProductDataSteps {
 	public void forSelecionadaAOpcaoQuinzeMilhoes() {
 		Na(EnterProductDataPage.class).selecionarOpcaoQuinzeMilhoes();
 	}
-	
+
 	@Quando("for acionado o campo Merit Rating")
 	public void forAcionadoOCampoMeritRating() {
 		Na(EnterProductDataPage.class).acionarCampoMeritRating();
@@ -75,7 +82,7 @@ public class EnterProductDataSteps {
 	public void forAcionadoOCampoCourtesyCar() {
 		Na(EnterProductDataPage.class).acionarCampoCourtesyCar();
 	}
-	
+
 	@Quando("for selecionada a opcao Yes")
 	public void forSelecionadaAOpcaoYes() {
 		Na(EnterProductDataPage.class).selecionarOpcaoYes();
@@ -85,16 +92,17 @@ public class EnterProductDataSteps {
 	public void forAcionadoOTerceiroBotaoNext() {
 		Na(EnterProductDataPage.class).acionarBotaoNextPriceAction();
 	}
+	
+	/*********Validacoes*********/
 
 	@Entao("o sistema me direciona para a tela de Opcoes de selecao de Preco")
 	public void oSistemaMeDirecionaParaATelaDeOpcoesDeSelecaoDePreco() {
 		Na(EnterProductDataPage.class).validarRedirecionamentoProxPagina();
 	}
-	
+
 	@Entao("o sistema nao direciona o usuario para a tela de selecao de opcoes de preco")
 	public void oSistemaNaoDirecionaOUsuarioParaATelaDeSelecaoDeOpcoesDePreco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+		Na(EnterProductDataPage.class).validarFalhaRedirecionamentoProxPagina();
 	}
 
 }

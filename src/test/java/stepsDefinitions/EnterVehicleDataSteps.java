@@ -9,21 +9,27 @@ import pageObjects.EnterVehicleDataPage;
 
 public class EnterVehicleDataSteps {
 
+	// Classe com os metodos gerados a partir do passo a passo descrito no Gherkin
+	// das features do Cucumber. Os metodos dessa pagina chamam o metodo "Na" dentro
+	// da Utils, passando como paramentro a classe e o metodo com a acao a ser executada
+	
+	/*********Steps*********/
+
 	@Dado("que o usuario acione o campo Make")
 	public void queOUsuarioAcioneOCampoMake() {
 		Na(EnterVehicleDataPage.class).acionarCampoMake();
 	}
-	
-	//Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
+
+	// Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
 	@Dado("que o usuario nao preencha os campos de dropdown e radio da pagina")
 	public void queOUsuarioNaoPreenchaOsCamposDeDropdownERadioDaPagina() {
-	    
+
 	}
-	
-	//Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
+
+	// Este metodo propositalmente nao executa nenhuma acao, conforme proposto no cenario
 	@Dado("que o usuario nao preencha os dados do veiculo")
 	public void queOUsuarioNaoPreenchaOsDadosDoVeiculo() {
-	    
+
 	}
 
 	@Quando("for selecionada a Opcao Audi")
@@ -130,12 +136,14 @@ public class EnterVehicleDataSteps {
 	public void forAcionadoOPrimeiroBotaoNext() {
 		Na(EnterVehicleDataPage.class).acionarBotaoNextInsurantData();
 	}
+	
+	/*********Validacoes*********/
 
 	@Entao("o sistema direciona o usuario para a tela de inserir dados pessoais")
 	public void oSistemaDirecionaOUsuarioParaATelaDeInserirDadosPessoais() {
 		Na(EnterVehicleDataPage.class).validarRedirecionamentoProxPagina();
 	}
-	
+
 	@Entao("o sistema nao direciona o usuario para a tela de inserir dados pessoais")
 	public void oSistemaNaoDirecionaOUsuarioParaATelaDeInserirDadosPessoais() {
 		Na(EnterVehicleDataPage.class).validarFalhaRedirecionamentoProxPagina();

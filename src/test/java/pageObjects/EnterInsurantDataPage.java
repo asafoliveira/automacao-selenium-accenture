@@ -63,17 +63,37 @@ public class EnterInsurantDataPage extends BasePage {
 
 	@FindBy(id = "nextenterproductdata")
 	private WebElement botaoNextProductData;
-	
+
+	@FindBy(xpath = "//section[2]/div[1]/i")
+	private WebElement iconeOKCampoFirstName;
+
+	@FindBy(xpath = "//section[2]/div[2]/i")
+	private WebElement iconeOKCampoLastName;
+
+	@FindBy(xpath = "//section[2]/div[5]/i")
+	private WebElement iconeOKCampoStreetAddress;
+
+	@FindBy(xpath = "//section[2]/div[11]/i")
+	private WebElement iconeOKCampoWebsite;
+
 	@FindBy(xpath = "//label[text()='Start Date']")
 	private WebElement tituloStartDate;
-	
-	// M�todos de acoes encapsulando os campos mapeados da p�gina
+
+	// Metodos de acoes encapsulando os campos mapeados da pagina
 	public void preencherCampoFirstName(String firstName) {
 		escrever(campoFirstName, firstName);
 	}
 
+	public void preencherCampoFirstNameTextoLongo(String firstName) {
+		escrever(campoFirstName, firstName + concatenarString("A", 300));
+	}
+
 	public void preencherCampoLastNane(String lastName) {
 		escrever(campoLastName, lastName);
+	}
+
+	public void preencherCampoLastNameTextoLongo(String lastName) {
+		escrever(campoLastName, lastName + concatenarString("A", 300));
 	}
 
 	public void preencherCampoDateOfBirth(String dateOfBirth) {
@@ -90,6 +110,10 @@ public class EnterInsurantDataPage extends BasePage {
 
 	public void preencherCampoStreetAddress(String streetAdress) {
 		escrever(campoStreetAddress, streetAdress);
+	}
+
+	public void preencherCampoStreetAddressTextoLongo(String streetAdress) {
+		escrever(campoStreetAddress, streetAdress + concatenarString("A12@", 300));
 	}
 
 	public void selecionarOpcaoBrazil() {
@@ -124,22 +148,50 @@ public class EnterInsurantDataPage extends BasePage {
 		escrever(campoWebsite, website);
 	}
 
+	public void preencherCampoWebsiteTextoLongo(String website) {
+		escrever(campoWebsite, concatenarString("A", 300) + website);
+	}
+
 	public void acionarBotaoNextProductData() {
 		clicar(botaoNextProductData);
 	}
 
-	//Validacao para verificar se o sistemar redirecionou o usuario para a p�gina
-	//Enter Insurant Data, atraves do mapeamento de um dos campos da p�gina seguinte 
+	// Validacao para verificar se o sistema redirecionou o usuario para a pagina
+	// Enter Insurant Data, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarRedirecionamentoProxPagina() {
 		validacaoValorEsperado("Start Date", tituloStartDate);
 	}
-	
+
+	// Validacao para verificar se o sistema nao redirecionou o usuario para a
+	// pagina Enter Insurant Data, atraves do mapeamento de um dos campos da pagina seguinte
 	public void validarFalhaRedirecionamentoProxPagina() {
 		validacaoValorNaoEsperado("Start Date", tituloStartDate);
 	}
 
-	//M�todo que encapsula todos os m�todos da page e realiza a rotina de
-	//preenchimento dos dados pessoais.
+	// Validacoes para verificar se o sistema aceitou a inserçao dos dados, atraves
+	// do mapeamento da mensagem de OK do campo
+	public void validarTamanhoCampoFirstName() {
+		esperarElemento(iconeOKCampoFirstName);
+		validacaoValorEsperado(iconeOKCampoFirstName);
+	}
+
+	public void validarTamanhoCampoLastName() {
+		esperarElemento(iconeOKCampoLastName);
+		validacaoValorEsperado(iconeOKCampoLastName);
+	}
+
+	public void validarTamanhoCampoStreetAddress() {
+		esperarElemento(iconeOKCampoStreetAddress);
+		validacaoValorEsperado(iconeOKCampoStreetAddress);
+	}
+
+	public void validarTamanhoCampoWebsite() {
+		esperarElemento(iconeOKCampoWebsite);
+		validacaoValorEsperado(iconeOKCampoWebsite);
+	}
+
+	// Metodo que encapsula os metodos essenciais da page e realiza a rotina de
+	// preenchimento dos dados pessoais
 	public void preencherDadosPessoais(String firstName, String lastName, String dateOfBirth, String streetAddress,
 			String zipCode, String city, String website) {
 		Na(EnterVehicleDataPage.class).preencherDadosDoVeiculo("1000", "2000", "200", "500", "35000", "54321@",
